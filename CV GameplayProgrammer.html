@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Elouan Thepaut</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .title {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 1;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            font-weight: 600;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .skill-category p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .item-company {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .item-date {
+            color: #888;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .item-description {
+            margin-top: 10px;
+        }
+
+        .item-description li {
+            margin-left: 20px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .placeholder {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #856404;
+        }
+
+        .placeholder strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background: #e8eaf6;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .placeholder {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .item-header {
+                flex-direction: column;
+            }
+            .item-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>THEPAUT Elouan</h1>
+            <div class="title">Gameplay Programmer</div>
+            <div class="contact-info">
+                <span>📞 06 48 59 76 00</span>
+                <span>✉️ e.thepaut28@gmail.com</span>
+                <span>📍 Lyon, 69002</span>
+            </div>
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/elouan-thepaut" target="_blank">LinkedIn</a>
+                <a href="https://thepaut-elouan-github-io.vercel.app" target="_blank">Portfolio</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Compétences -->
+            <div class="section">
+                <h2 class="section-title">Compétences Techniques</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Langages</h3>
+                        <p>C++, C#, C, Python, HLSL</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Moteurs & Frameworks</h3>
+                        <p>Unity, Unreal Engine 5, DirectX12</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Domaines</h3>
+                        <p>UI/UX, IA, Animations, Cinématiques</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Outils</h3>
+                        <p>Visual Studio, Git, Unreal Editor</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projets -->
+            <div class="section">
+                <h2 class="section-title">Projets</h2>
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">3D Engine</div>
+                            <div class="item-company">Création from scratch d'un moteur de jeu 3D custom</div>
+                        </div>
+                        <div class="item-date">07 2025</div>
+                    </div>
+                    <ul class="item-description">
+                        <li>Ajout d'un shadow mapping, d'un frame resource et des scènes de tests</li>
+                        <li>Gros apprentissage des moteurs custom, programmation en C++ et HLSL</li>
+                        <li>Beaucoup de recherches personnelles et documentation sur DirectX12 et les shaders, skybox et rendu 3D</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">DirectX 12</span>
+                        <span class="tech-tag">HLSL</span>
+                        <span class="tech-tag">C++</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Cinématique Unreal Engine 5</div>
+                            <div class="item-company">Réalisation d'un clip vidéo servant de trailer d'une map</div>
+                        </div>
+                        <div class="item-date">09 2025</div>
+                    </div>
+                    <ul class="item-description">
+                        <li>Réalisation de plusieurs plans séquences de différents endroits clés de la map puis assemblage et montage du clip entier</li>
+                        <li>Bonne introduction à Unreal Engine et à ses fonctionnalités cinématiques</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Unreal Engine 5</span>
+                        <span class="tech-tag">Sequencer</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Lite Hungry Shark</div>
+                            <div class="item-company">Jeu procédural sur Unity en duo en 1 semaine</div>
+                        </div>
+                        <div class="item-date">11 2025</div>
+                    </div>
+                    <ul class="item-description">
+                        <li>Randomisation des seeds pour une rejouabilité infinie, carte faite à l'aide d'un noise perlin, décor réalisé à l'aide de tileSets</li>
+                        <li>Apprentissage de plusieurs types de générations procédurales, et familirasation d'Unity</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">Génération procédurale</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expériences Professionnelles -->
+            <div class="section">
+                <h2 class="section-title">Expériences Professionnelles</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Développeur Rendu | Custom Engine</div>
+                            <div class="item-company">Gaming Campus</div>
+                        </div>
+                        <div class="item-date">Mai 2025 - Juillet 2025</div>
+                    </div>
+                    <ul class="item-description">
+                        <li>Ajout d'un shadow mapping avec DirectX 12 et HLSL. Première expérience de pair programming</li>
+                        <li>Ajout d'un Frame Resources pour optimiser le moteur</li>
+                        <li>Création d'une scène de démo pour afficher le résultat final du pôle rendu</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">DirectX 12</span>
+                        <span class="tech-tag">HLSL</span>
+                        <span class="tech-tag">C++</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Vendeur à Domicile Indépendant</div>
+                            <div class="item-company">Geninc</div>
+                        </div>
+                        <div class="item-date">Juillet 2024 - Sept. 2024</div>
+                    </div>
+                    <ul class="item-description">
+                        <li>Présentation et promotion de donations caritatives auprès de prospects en porte à porte</li>
+                        <li>Création d'une relation de confiance avec les clients pour favoriser la fidélisation</li>
+                        <li>Networking régulier de mon initiative pour améliorer mes compétences</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Facteur / Livreur / Trieur</div>
+                            <div class="item-company">La Poste</div>
+                        </div>
+                        <div class="item-date">Fév. 2023 - Oct. 2023</div>
+                    </div>
+                    <ul class="item-description">
+                        <li>Création de la tournée en triant les arrivées quotidiennes du courrier et recommandés</li>
+                        <li>Livraison du courrier, colis et recommandés dans 2 quartiers de la ville</li>
+                        <li>Rendus quotidiens des résultats de la tournée</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
