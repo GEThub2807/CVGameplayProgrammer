@@ -24,6 +24,40 @@
             margin: 0 auto;
             background: white;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .lang-btn.active {
+            background: #667eea;
+            color: white;
         }
 
         .header {
@@ -151,22 +185,6 @@
             color: #555;
         }
 
-        .placeholder {
-            background: #fff3cd;
-            border: 2px dashed #ffc107;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #856404;
-        }
-
-        .placeholder strong {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
@@ -183,6 +201,14 @@
             font-weight: 500;
         }
 
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
         @media print {
             body {
                 background: white;
@@ -191,7 +217,7 @@
             .container {
                 box-shadow: none;
             }
-            .placeholder {
+            .lang-switch {
                 display: none;
             }
         }
@@ -206,164 +232,348 @@
             .item-date {
                 margin-top: 5px;
             }
+            .lang-switch {
+                position: static;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>THEPAUT Elouan</h1>
-            <div class="title">Gameplay Programmer</div>
-            <div class="contact-info">
-                <span>📞 06 48 59 76 00</span>
-                <span>✉️ e.thepaut28@gmail.com</span>
-                <span>📍 Lyon, 69002</span>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('fr')">🇫🇷 FR</button>
+            <button class="lang-btn" onclick="switchLang('en')">🇬🇧 EN</button>
+        </div>
+
+        <!-- VERSION FRANÇAISE -->
+        <div id="fr-content" class="lang-content active">
+            <div class="header">
+                <h1>THEPAUT Elouan</h1>
+                <div class="title">Gameplay Programmer</div>
+                <div class="contact-info">
+                    <span>📞 06 48 59 76 00</span>
+                    <span>✉️ e.thepaut28@gmail.com</span>
+                    <span>📍 Lyon, 69002</span>
+                </div>
+                <div class="contact-info">
+                    <a href="https://www.linkedin.com/in/elouan-thepaut" target="_blank">LinkedIn</a>
+                    <a href="https://thepaut-elouan-github-io.vercel.app" target="_blank">Portfolio</a>
+                </div>
             </div>
-            <div class="contact-info">
-                <a href="https://www.linkedin.com/in/elouan-thepaut" target="_blank">LinkedIn</a>
-                <a href="https://thepaut-elouan-github-io.vercel.app" target="_blank">Portfolio</a>
+
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">Compétences Techniques</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Langages</h3>
+                            <p>C++, C#, C, Python, HLSL</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Moteurs & Frameworks</h3>
+                            <p>Unity, Unreal Engine 5, DirectX12</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Domaines</h3>
+                            <p>UI/UX, IA, Animations, Cinématiques</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Outils</h3>
+                            <p>Visual Studio, Git, Unreal Editor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Projets</h2>
+                    <div class="project-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">3D Engine</div>
+                                <div class="item-company">Création from scratch d'un moteur de jeu 3D custom</div>
+                            </div>
+                            <div class="item-date">07 2025</div>
+                        </div>
+                        <ul class="item-description">
+                            <li>Ajout d'un shadow mapping, d'un frame resource et des scènes de tests</li>
+                            <li>Gros apprentissage des moteurs custom, programmation en C++ et HLSL</li>
+                            <li>Beaucoup de recherches personnelles et documentation sur DirectX12 et les shaders, skybox et rendu 3D</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">DirectX 12</span>
+                            <span class="tech-tag">HLSL</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Cinématique Unreal Engine 5</div>
+                                <div class="item-company">Réalisation d'un clip vidéo servant de trailer d'une map</div>
+                            </div>
+                            <div class="item-date">09 2025</div>
+                        </div>
+                        <ul class="item-description">
+                            <li>Réalisation de plusieurs plans séquences de différents endroits clés de la map puis assemblage et montage du clip entier</li>
+                            <li>Bonne introduction à Unreal Engine et à ses fonctionnalités cinématiques</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unreal Engine 5</span>
+                            <span class="tech-tag">Sequencer</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Lite Hungry Shark</div>
+                                <div class="item-company">Jeu procédural sur Unity en duo en 1 semaine</div>
+                            </div>
+                            <div class="item-date">11 2025</div>
+                        </div>
+                        <ul class="item-description">
+                            <li>Randomisation des seeds pour une rejouabilité infinie, carte faite à l'aide d'un noise perlin, décor réalisé à l'aide de tileSets</li>
+                            <li>Apprentissage de plusieurs types de générations procédurales, et familiarisation d'Unity</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Génération procédurale</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Expériences Professionnelles</h2>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Développeur Rendu | Custom Engine</div>
+                                <div class="item-company">Gaming Campus</div>
+                            </div>
+                            <div class="item-date">Mai 2025 - Juillet 2025</div>
+                        </div>
+                        <ul class="item-description">
+                            <li>Ajout d'un shadow mapping avec DirectX 12 et HLSL. Première expérience de pair programming</li>
+                            <li>Ajout d'un Frame Resources pour optimiser le moteur</li>
+                            <li>Création d'une scène de démo pour afficher le résultat final du pôle rendu</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">DirectX 12</span>
+                            <span class="tech-tag">HLSL</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Vendeur à Domicile Indépendant</div>
+                                <div class="item-company">Geninc</div>
+                            </div>
+                            <div class="item-date">Juillet 2024 - Sept. 2024</div>
+                        </div>
+                        <ul class="item-description">
+                            <li>Présentation et promotion de donations caritatives auprès de prospects en porte à porte</li>
+                            <li>Création d'une relation de confiance avec les clients pour favoriser la fidélisation</li>
+                            <li>Networking régulier de mon initiative pour améliorer mes compétences</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Facteur / Livreur / Trieur</div>
+                                <div class="item-company">La Poste</div>
+                            </div>
+                            <div class="item-date">Fév. 2023 - Oct. 2023</div>
+                        </div>
+                        <ul class="item-description">
+                            <li>Création de la tournée en triant les arrivées quotidiennes du courrier et recommandés</li>
+                            <li>Livraison du courrier, colis et recommandés dans 2 quartiers de la ville</li>
+                            <li>Rendus quotidiens des résultats de la tournée</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="content">
-            <!-- Compétences -->
-            <div class="section">
-                <h2 class="section-title">Compétences Techniques</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Langages</h3>
-                        <p>C++, C#, C, Python, HLSL</p>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Moteurs & Frameworks</h3>
-                        <p>Unity, Unreal Engine 5, DirectX12</p>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Domaines</h3>
-                        <p>UI/UX, IA, Animations, Cinématiques</p>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Outils</h3>
-                        <p>Visual Studio, Git, Unreal Editor</p>
-                    </div>
+        <!-- VERSION ANGLAISE -->
+        <div id="en-content" class="lang-content">
+            <div class="header">
+                <h1>THEPAUT Elouan</h1>
+                <div class="title">Gameplay Programmer</div>
+                <div class="contact-info">
+                    <span>📞 +33 6 48 59 76 00</span>
+                    <span>✉️ e.thepaut28@gmail.com</span>
+                    <span>📍 Lyon, France</span>
+                </div>
+                <div class="contact-info">
+                    <a href="https://www.linkedin.com/in/elouan-thepaut" target="_blank">LinkedIn</a>
+                    <a href="https://thepaut-elouan-github-io.vercel.app" target="_blank">Portfolio</a>
                 </div>
             </div>
 
-            <!-- Projets -->
-            <div class="section">
-                <h2 class="section-title">Projets</h2>
-                <div class="project-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">3D Engine</div>
-                            <div class="item-company">Création from scratch d'un moteur de jeu 3D custom</div>
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Languages</h3>
+                            <p>C++, C#, C, Python, HLSL</p>
                         </div>
-                        <div class="item-date">07 2025</div>
-                    </div>
-                    <ul class="item-description">
-                        <li>Ajout d'un shadow mapping, d'un frame resource et des scènes de tests</li>
-                        <li>Gros apprentissage des moteurs custom, programmation en C++ et HLSL</li>
-                        <li>Beaucoup de recherches personnelles et documentation sur DirectX12 et les shaders, skybox et rendu 3D</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">DirectX 12</span>
-                        <span class="tech-tag">HLSL</span>
-                        <span class="tech-tag">C++</span>
+                        <div class="skill-category">
+                            <h3>Engines & Frameworks</h3>
+                            <p>Unity, Unreal Engine 5, DirectX12</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Domains</h3>
+                            <p>UI/UX, AI, Animations, Cinematics</p>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Tools</h3>
+                            <p>Visual Studio, Git, Unreal Editor</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">Cinématique Unreal Engine 5</div>
-                            <div class="item-company">Réalisation d'un clip vidéo servant de trailer d'une map</div>
+                <div class="section">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="project-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">3D Engine</div>
+                                <div class="item-company">From-scratch creation of a custom 3D game engine</div>
+                            </div>
+                            <div class="item-date">07 2025</div>
                         </div>
-                        <div class="item-date">09 2025</div>
+                        <ul class="item-description">
+                            <li>Implemented shadow mapping, frame resources, and test scenes</li>
+                            <li>Deep learning of custom engines, C++ and HLSL programming</li>
+                            <li>Extensive personal research and documentation on DirectX12, shaders, skybox and 3D rendering</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">DirectX 12</span>
+                            <span class="tech-tag">HLSL</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
                     </div>
-                    <ul class="item-description">
-                        <li>Réalisation de plusieurs plans séquences de différents endroits clés de la map puis assemblage et montage du clip entier</li>
-                        <li>Bonne introduction à Unreal Engine et à ses fonctionnalités cinématiques</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Unreal Engine 5</span>
-                        <span class="tech-tag">Sequencer</span>
+
+                    <div class="project-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Unreal Engine 5 Cinematic</div>
+                                <div class="item-company">Video clip production serving as a map trailer</div>
+                            </div>
+                            <div class="item-date">09 2025</div>
+                        </div>
+                        <ul class="item-description">
+                            <li>Created multiple sequence shots of key map locations, followed by full clip assembly and editing</li>
+                            <li>Strong introduction to Unreal Engine and its cinematic features</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unreal Engine 5</span>
+                            <span class="tech-tag">Sequencer</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Lite Hungry Shark</div>
+                                <div class="item-company">Procedural Unity game developed in duo in 1 week</div>
+                            </div>
+                            <div class="item-date">11 2025</div>
+                        </div>
+                        <ul class="item-description">
+                            <li>Seed randomization for infinite replayability, map generated using Perlin noise, environment built with tileSets</li>
+                            <li>Learning of multiple types of procedural generation and Unity familiarization</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Procedural Generation</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">Lite Hungry Shark</div>
-                            <div class="item-company">Jeu procédural sur Unity en duo en 1 semaine</div>
+                <div class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Rendering Developer | Custom Engine</div>
+                                <div class="item-company">Gaming Campus</div>
+                            </div>
+                            <div class="item-date">May 2025 - July 2025</div>
                         </div>
-                        <div class="item-date">11 2025</div>
+                        <ul class="item-description">
+                            <li>Implemented shadow mapping with DirectX 12 and HLSL. First pair programming experience</li>
+                            <li>Added Frame Resources to optimize the engine</li>
+                            <li>Created a demo scene to showcase the final rendering results</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">DirectX 12</span>
+                            <span class="tech-tag">HLSL</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
                     </div>
-                    <ul class="item-description">
-                        <li>Randomisation des seeds pour une rejouabilité infinie, carte faite à l'aide d'un noise perlin, décor réalisé à l'aide de tileSets</li>
-                        <li>Apprentissage de plusieurs types de générations procédurales, et familirasation d'Unity</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Unity</span>
-                        <span class="tech-tag">Génération procédurale</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Expériences Professionnelles -->
-            <div class="section">
-                <h2 class="section-title">Expériences Professionnelles</h2>
-                
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">Développeur Rendu | Custom Engine</div>
-                            <div class="item-company">Gaming Campus</div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Independent Door-to-Door Salesperson</div>
+                                <div class="item-company">Geninc</div>
+                            </div>
+                            <div class="item-date">July 2024 - Sept. 2024</div>
                         </div>
-                        <div class="item-date">Mai 2025 - Juillet 2025</div>
+                        <ul class="item-description">
+                            <li>Presented and promoted charitable donations to prospects through door-to-door canvassing</li>
+                            <li>Built trust relationships with clients to encourage loyalty</li>
+                            <li>Self-initiated regular networking to improve my skills</li>
+                        </ul>
                     </div>
-                    <ul class="item-description">
-                        <li>Ajout d'un shadow mapping avec DirectX 12 et HLSL. Première expérience de pair programming</li>
-                        <li>Ajout d'un Frame Resources pour optimiser le moteur</li>
-                        <li>Création d'une scène de démo pour afficher le résultat final du pôle rendu</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">DirectX 12</span>
-                        <span class="tech-tag">HLSL</span>
-                        <span class="tech-tag">C++</span>
-                    </div>
-                </div>
 
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">Vendeur à Domicile Indépendant</div>
-                            <div class="item-company">Geninc</div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Mail Carrier / Delivery / Sorter</div>
+                                <div class="item-company">La Poste</div>
+                            </div>
+                            <div class="item-date">Feb. 2023 - Oct. 2023</div>
                         </div>
-                        <div class="item-date">Juillet 2024 - Sept. 2024</div>
+                        <ul class="item-description">
+                            <li>Created daily routes by sorting incoming mail and registered letters</li>
+                            <li>Delivered mail, parcels and registered letters in 2 city districts</li>
+                            <li>Daily reporting of route results</li>
+                        </ul>
                     </div>
-                    <ul class="item-description">
-                        <li>Présentation et promotion de donations caritatives auprès de prospects en porte à porte</li>
-                        <li>Création d'une relation de confiance avec les clients pour favoriser la fidélisation</li>
-                        <li>Networking régulier de mon initiative pour améliorer mes compétences</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">Facteur / Livreur / Trieur</div>
-                            <div class="item-company">La Poste</div>
-                        </div>
-                        <div class="item-date">Fév. 2023 - Oct. 2023</div>
-                    </div>
-                    <ul class="item-description">
-                        <li>Création de la tournée en triant les arrivées quotidiennes du courrier et recommandés</li>
-                        <li>Livraison du courrier, colis et recommandés dans 2 quartiers de la ville</li>
-                        <li>Rendus quotidiens des résultats de la tournée</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function switchLang(lang) {
+            const frContent = document.getElementById('fr-content');
+            const enContent = document.getElementById('en-content');
+            const buttons = document.querySelectorAll('.lang-btn');
+            
+            if (lang === 'fr') {
+                frContent.classList.add('active');
+                enContent.classList.remove('active');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                frContent.classList.remove('active');
+                enContent.classList.add('active');
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
