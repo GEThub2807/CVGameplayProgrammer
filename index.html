@@ -213,12 +213,57 @@
             body {
                 background: white;
                 padding: 0;
+                font-size: 11pt;
             }
             .container {
                 box-shadow: none;
+                max-width: 100%;
             }
             .lang-switch {
                 display: none;
+            }
+            .header {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 30px;
+                page-break-after: avoid;
+            }
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 25px;
+            }
+            .project-item, .experience-item {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+            .section-title {
+                page-break-after: avoid;
+                margin-top: 10px;
+            }
+            .tech-tags {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .tech-tag {
+                background: #e8eaf6 !important;
+                color: #667eea !important;
+            }
+            .skill-category {
+                background: #f8f9fa !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .content {
+                padding: 30px;
+            }
+            a {
+                color: white !important;
+                text-decoration: none;
+            }
+            .item-description li {
+                margin-bottom: 5px;
             }
         }
 
