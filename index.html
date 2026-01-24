@@ -168,13 +168,12 @@
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
+            padding: 10px;
             text-align: center;
         }
 
         .header h1 {
             font-size: 2.5em;
-            margin-bottom: 10px;
             font-weight: 700;
         }
 
@@ -205,11 +204,11 @@
         }
 
         .content {
-            padding: 40px;
+            padding: 20px;
         }
 
         .section {
-            margin-bottom: 35px;
+            margin-bottom: 5px;
         }
 
         .section-title {
@@ -222,27 +221,38 @@
         }
 
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .skill-category {
             background: #f8f9fa;
-            padding: 15px;
+            padding: 8px 12px;
             border-radius: 8px;
             border-left: 4px solid #667eea;
+            flex: 1;
+            min-width: 180px;
         }
 
         .skill-category h3 {
             color: #667eea;
-            font-size: 1.1em;
-            margin-bottom: 8px;
+            font-size: 0.9em;
+            margin-bottom: 0;
+            display: inline;
+            font-weight: 600;
         }
 
         .skill-category p {
-            font-size: 0.95em;
+            font-size: 0.85em;
             color: #555;
+            display: inline;
+            margin: 0;
+        }
+        
+        .skill-category h3::after {
+            content: ": ";
         }
 
         .experience-item, .project-item {
@@ -334,20 +344,30 @@
                 background: #667eea !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
-                padding: 30px;
+                padding: 10px;
                 page-break-after: avoid;
             }
-            .section {
-                page-break-inside: avoid;
-                margin-bottom: 25px;
+            .skills-grid {
+                flex-wrap: nowrap;
+            }
+            .skill-category {
+                background: #f8f9fa !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 6px 10px;
+                min-width: auto;
+            }
+            .skill-category h3 {
+                font-size: 0.8em;
+            }
+            .skill-category p {
+                font-size: 0.75em;
             }
             .project-item, .experience-item {
-                page-break-inside: avoid;
                 margin-bottom: 20px;
                 padding-bottom: 20px;
             }
             .section-title {
-                page-break-after: avoid;
                 margin-top: 10px;
             }
             .tech-tags {
@@ -358,13 +378,8 @@
                 background: #e8eaf6 !important;
                 color: #667eea !important;
             }
-            .skill-category {
-                background: #f8f9fa !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
             .content {
-                padding: 30px;
+                padding: 10px;
             }
             a {
                 color: white !important;
@@ -440,7 +455,7 @@
                             <p>C++, C#, C, Python, HLSL</p>
                         </div>
                         <div class="skill-category">
-                            <h3>Moteurs & Frameworks</h3>
+                            <h3>Moteurs</h3>
                             <p>Unity, Unreal Engine 5, DirectX12</p>
                         </div>
                         <div class="skill-category">
@@ -456,26 +471,6 @@
 
                 <div class="section">
                     <h2 class="section-title">Projets</h2>
-                    <div class="project-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">3D Engine</div>
-                                <div class="item-company">Création from scratch d'un moteur de jeu 3D custom</div>
-                            </div>
-                            <div class="item-date">07 2025</div>
-                        </div>
-                        <ul class="item-description">
-                            <li>Ajout d'un shadow mapping, d'un frame resource et des scènes de tests</li>
-                            <li>Gros apprentissage des moteurs custom, programmation en C++ et HLSL</li>
-                            <li>Beaucoup de recherches personnelles et documentation sur DirectX12 et les shaders, skybox et rendu 3D</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">DirectX 12</span>
-                            <span class="tech-tag">HLSL</span>
-                            <span class="tech-tag">C++</span>
-                        </div>
-                    </div>
-
                     <div class="project-item">
                         <div class="item-header">
                             <div>
@@ -515,27 +510,6 @@
 
                 <div class="section">
                     <h2 class="section-title">Expériences Professionnelles</h2>
-                    
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Développeur Rendu | Custom Engine</div>
-                                <div class="item-company">Gaming Campus</div>
-                            </div>
-                            <div class="item-date">Mai 2025 - Juillet 2025</div>
-                        </div>
-                        <ul class="item-description">
-                            <li>Ajout d'un shadow mapping avec DirectX 12 et HLSL. Première expérience de pair programming</li>
-                            <li>Ajout d'un Frame Resources pour optimiser le moteur</li>
-                            <li>Création d'une scène de démo pour afficher le résultat final du pôle rendu</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">DirectX 12</span>
-                            <span class="tech-tag">HLSL</span>
-                            <span class="tech-tag">C++</span>
-                        </div>
-                    </div>
-
                     <div class="experience-item">
                         <div class="item-header">
                             <div>
@@ -594,7 +568,7 @@
                             <p>C++, C#, C, Python, HLSL</p>
                         </div>
                         <div class="skill-category">
-                            <h3>Engines & Frameworks</h3>
+                            <h3>Engines</h3>
                             <p>Unity, Unreal Engine 5, DirectX12</p>
                         </div>
                         <div class="skill-category">
@@ -607,29 +581,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="section">
-                    <h2 class="section-title">Projects</h2>
-                    <div class="project-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">3D Engine</div>
-                                <div class="item-company">From-scratch creation of a custom 3D game engine</div>
-                            </div>
-                            <div class="item-date">07 2025</div>
-                        </div>
-                        <ul class="item-description">
-                            <li>Implemented shadow mapping, frame resources, and test scenes</li>
-                            <li>Deep learning of custom engines, C++ and HLSL programming</li>
-                            <li>Extensive personal research and documentation on DirectX12, shaders, skybox and 3D rendering</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">DirectX 12</span>
-                            <span class="tech-tag">HLSL</span>
-                            <span class="tech-tag">C++</span>
-                        </div>
-                    </div>
-
                     <div class="project-item">
                         <div class="item-header">
                             <div>
@@ -669,27 +620,6 @@
 
                 <div class="section">
                     <h2 class="section-title">Professional Experience</h2>
-                    
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Rendering Developer | Custom Engine</div>
-                                <div class="item-company">Gaming Campus</div>
-                            </div>
-                            <div class="item-date">May 2025 - July 2025</div>
-                        </div>
-                        <ul class="item-description">
-                            <li>Implemented shadow mapping with DirectX 12 and HLSL. First pair programming experience</li>
-                            <li>Added Frame Resources to optimize the engine</li>
-                            <li>Created a demo scene to showcase the final rendering results</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">DirectX 12</span>
-                            <span class="tech-tag">HLSL</span>
-                            <span class="tech-tag">C++</span>
-                        </div>
-                    </div>
-
                     <div class="experience-item">
                         <div class="item-header">
                             <div>
