@@ -6,640 +6,831 @@
 <title>CV — Elouan Thepaut</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-    :root {
+  :root {
     --ink: #0e0e0e;
     --accent: #1a56db;
     --accent2: #0e3a8c;
     --muted: #5a6070;
     --line: #d0d5e0;
     --skill-bg: #f4f6fb;
+    --bg-tag: #e8eef8;
     --page-w: 210mm;
     --page-h: 297mm;
-    --bg-tag: #e8eef8;
-    }
+  }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-        font-size: 9pt;
-        color: var(--ink);
-        font-family: 'DM Sans', sans-serif;
-        line-height: 1.4;
-        background: #e8ecf2;
-    }
+  body {
+    font-size: 9pt;
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.4;
+    background: #e8ecf2;
+  }
 
-    /* ── SCREEN CONTROLS ───────────────────────── */
-    .controls {
-        justify-content: center;
-        gap: 8px;
-        padding: 12px;
-        display: flex;
-    }
-    .lang-btn {
-        border: 1.5px solid var(--accent);
-        background: white;
-        color: var(--accent);
-        cursor: pointer;
-        border-radius: 20px;
-        padding: 6px 16px;
-        font-family: 'DM Sans', sans-serif;
-        font-weight: 600;
-        font-size: 11px;
-        transition: all .2s;
-    }
-    .lang-btn:hover { background: #eef2fc; }
-    .lang-btn.active { background: var(--accent); color: white; }
-    .print-btn {
-        padding: 6px 16px;
-        border: 1.5px solid #444;
-        background: white;
-        color: #444;
-        cursor: pointer;
-        border-radius: 20px;
-        font-family: 'DM Sans', sans-serif;
-        font-weight: 600;
-        font-size: 11px;
-        transition: all .2s;
-    }
-    .print-btn:hover { background: #f5f5f5; }
-    
-    /* ── PAGE ─────────────────────────────────── */
-    .page {
-        width: var(--page-w);
-        min-height: var(--page-h);
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 4px 32px rgba(0,0,0,.15);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
-    
-    /* ── HEADER ──────────────────────────────── */
-    header {
-        background: var(--ink);
-        color: white;
-        padding: 14px 20px 12px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: end;
-        gap: 10px;
-    }
-    .name {
-        font-family: 'DM Mono', monospace;
-        font-size: 20pt;
-        font-weight: 500;
-        letter-spacing: -0.02em;
-        line-height: 1;
-    }
-    .job-title {
-        font-size: 8.5pt;
-        font-weight: 300;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #a0aabf;
-        margin-top: 4px;
-    }
-    .contact-block {
-        text-align: right;
-        font-size: 7.5pt;
-        color: #a0aabf;
-        line-height: 1.7;
-    }
-    .contact-block a { color: #6f9fff; text-decoration: none; }
-    .contact-block a:hover { color: white; }
-    
-    /* ── BODY LAYOUT ─────────────────────────── */
-    .body {
-        flex: 1;
-        display: grid;
-        grid-template-columns: 56mm 1fr;
-        gap: 0;
-    }
-    
-    /* ── LEFT COLUMN ─────────────────────────── */
-    .left {
-        background: var(--skill-bg);
-        padding: 14px 14px 14px 16px;
-        border-right: 1px solid var(--line);
-    }
-    
-    .col-section { margin-bottom: 14px; }
-    
-    .col-title {
-        font-family: 'DM Mono', monospace;
-        font-size: 6.5pt;
-        font-weight: 500;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--accent);
-        border-bottom: 1.5px solid var(--accent);
-        padding-bottom: 3px;
-        margin-bottom: 8px;
-    }
-    
-    .skill-group { margin-bottom: 8px; }
-    .skill-label {
-        font-size: 7pt;
-        font-weight: 600;
-        color: var(--ink);
-        margin-bottom: 3px;
-    }
-    .skill-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 3px;
-    }
-    .pill {
-        background: var(--bg-tag);
-        color: var(--accent2);
-        font-size: 6.5pt;
-        font-weight: 500;
-        padding: 2px 6px;
-        border-radius: 3px;
-        font-family: 'DM Mono', monospace;
-    }
-    
-    /* ── RIGHT COLUMN ────────────────────────── */
-    .right {
-        padding: 14px 18px 14px 16px;
-    }
-    
-    .section { margin-bottom: 12px; }
-    .section:last-child { margin-bottom: 0; }
-    
-    .section-title {
-        font-family: 'DM Mono', monospace;
-        font-size: 6.5pt;
-        font-weight: 500;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      color: var(--accent);
-      border-bottom: 1.5px solid var(--accent);
-      padding-bottom: 3px;
-      margin-bottom: 8px;
-    }
-    
-    .entry { margin-bottom: 9px; }
-    .entry:last-child { margin-bottom: 0; }
-    
-    .entry-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 8px;
-        margin-bottom: 2px;
-    }
-    .entry-title {
-        font-weight: 600;
-        font-size: 8.5pt;
-        color: var(--ink);
-    }
-    .entry-date {
-        font-family: 'DM Mono', monospace;
-        font-size: 7pt;
-        color: var(--muted);
-        white-space: nowrap;
-    }
-    .entry-sub {
-        font-size: 7.5pt;
-        color: var(--accent);
-        font-weight: 500;
-        margin-bottom: 3px;
-    }
-    .entry-list {
-        padding-left: 0;
-        list-style: none;
-    }
-    .entry-list li {
-        font-size: 7.5pt;
-        color: var(--muted);
-        padding-left: 10px;
-        position: relative;
-        margin-bottom: 1.5px;
-        line-height: 1.35;
-    }
-    .entry-list li::before {
-        content: '–';
-        position: absolute;
-        left: 0;
-        color: var(--line);
-    }
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 3px;
-        margin-top: 4px;
-    }
-    .tag {
-        background: var(--bg-tag);
-        color: var(--accent2);
-        font-size: 6.5pt;
-        font-weight: 500;
-        padding: 1.5px 6px;
-        border-radius: 3px;
-        font-family: 'DM Mono', monospace;
-    }
+  /* ── CONTROLS BAR ── */
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    flex-wrap: wrap;
+  }
+  .sep {
+    width: 1px;
+    height: 20px;
+    background: #ccc;
+    margin: 0 4px;
+  }
+  .ctrl-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  button {
+    padding: 5px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    transition: all .2s;
+  }
+  .cv-btn {
+    border: 1.5px solid #444;
+    background: white;
+    color: #444;
+  }
+  .cv-btn:hover { background: #f0f0f0; }
+  .cv-btn.active { background: #0e0e0e; color: white; border-color: #0e0e0e; }
 
-    .divider {
-        border: none;
-        border-top: 1px solid var(--line);
-        margin: 8px 0;
-    }
-    
-    /* ── LANG CONTENT ────────────────────────── */
-    .lang-content { display: none; }
-    .lang-content.active { display: flex; flex-direction: column; flex: 1; }
-    
-    /* ── PRINT ───────────────────────────────── */
-    @media print {
-        @page {
-            size: A4;
-            margin: 0;
-        }
-        body { background: white; }
-        .controls { display: none; }
-        .page {
-            width: 210mm;
-            height: 297mm;
-            box-shadow: none;
-            margin: 0;
-        }
-        .lang-content:not(.active) { display: none !important; }
-        * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    }
-  </style>
+  .lang-btn {
+    border: 1.5px solid var(--accent);
+    background: white;
+    color: var(--accent);
+  }
+  .lang-btn:hover { background: #eef2fc; }
+  .lang-btn.active { background: var(--accent); color: white; }
+
+  .print-btn {
+    border: 1.5px solid #888;
+    background: white;
+    color: #555;
+  }
+  .print-btn:hover { background: #f5f5f5; }
+
+  /* ── PAGE ── */
+  .page {
+    width: var(--page-w);
+    min-height: var(--page-h);
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 4px 32px rgba(0,0,0,.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: white;
+    padding: 16px 22px 14px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 10px;
+  }
+  .name {
+    font-family: 'DM Mono', monospace;
+    font-size: 26pt;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .job-title {
+    font-size: 11pt;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a0aabf;
+    margin-top: 6px;
+  }
+  .contact-block {
+    text-align: right;
+    font-size: 7.5pt;
+    color: #a0aabf;
+    line-height: 1.8;
+  }
+  .contact-block a { color: #6f9fff; text-decoration: none; }
+  .contact-block a:hover { color: white; }
+
+  /* ── BODY LAYOUT ── */
+  .body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 56mm 1fr;
+  }
+
+  /* ── LEFT ── */
+  .left {
+    background: var(--skill-bg);
+    padding: 18px 14px 18px 16px;
+    border-right: 1px solid var(--line);
+  }
+  .col-section { margin-bottom: 18px; }
+  .col-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 8pt;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+  }
+  .skill-group { margin-bottom: 10px; }
+  .skill-label {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 3px; }
+  .pill {
+    background: var(--bg-tag);
+    color: var(--accent2);
+    font-size: 6.5pt;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── RIGHT ── */
+  .right { padding: 18px 20px 18px 18px; }
+
+  .section { margin-bottom: 18px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+  }
+
+  .entry { margin-bottom: 11px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+  .entry-title { font-weight: 600; font-size: 10.5pt; color: var(--ink); }
+  .entry-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .entry-sub {
+    font-size: 9pt;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .entry-list { padding-left: 0; list-style: none; }
+  .entry-list li {
+    font-size: 7.5pt;
+    color: var(--muted);
+    padding-left: 11px;
+    position: relative;
+    margin-bottom: 2px;
+    line-height: 1.38;
+  }
+  .entry-list li::before { content: '–'; position: absolute; left: 0; color: var(--line); }
+  .tags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
+  .tag {
+    background: var(--bg-tag);
+    color: var(--accent2);
+    font-size: 6.5pt;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+  }
+  .divider { border: none; border-top: 1px solid var(--line); margin: 10px 0; }
+
+  /* ── CV / LANG VISIBILITY ── */
+  .cv-panel { display: none; }
+  .cv-panel.active { display: flex; flex-direction: column; flex: 1; }
+  .lang-panel { display: none; }
+  .lang-panel.active { display: flex; flex-direction: column; flex: 1; }
+
+  /* ── PRINT ── */
+  @media print {
+    @page { size: A4; margin: 0; }
+    body { background: white; }
+    .controls { display: none; }
+    .page { width: 210mm; height: 297mm; box-shadow: none; margin: 0; }
+    .cv-panel:not(.active), .lang-panel:not(.active) { display: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
 </head>
 <body>
-    
-    <div class="controls">
-        <button class="lang-btn active" onclick="switchLang('fr')">🇫🇷 FR</button>
-        <button class="lang-btn" onclick="switchLang('en')">🇬🇧 EN</button>
-        <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
-    </div>
-    
-    <div class="page">
-        
-        <!-- ══════════ FR ══════════ -->
-        <div id="fr-content" class="lang-content active">
-    <header>
-        <div>
-            <div class="name">THEPAUT Elouan</div>
-            <div class="job-title">Gameplay Programmer</div>
-        </div>
-        <div class="contact-block">
-            06 48 59 76 00<br>
-            e.thepaut28@gmail.com<br>
-            Lyon, 69002<br>
-            <a href="https://www.linkedin.com/in/elouan-thepaut">LinkedIn</a> · <a href="https://thepaut-elouan-github-io.vercel.app">Portfolio</a>
-        </div>
-    </header>
-    
-    <div class="body">
-        <!-- LEFT -->
-        <div class="left">
-            <div class="col-section">
-                <div class="col-title">Compétences Techniques</div>
-                
-                <div class="skill-group">
-                    <div class="skill-label">Langages</div>
-                    <div class="skill-pills">
-                        <span class="pill">C++</span>
-                        <span class="pill">C#</span>
-                        <span class="pill">C</span>
-                        <span class="pill">Python</span>
-                        <span class="pill">HLSL</span>
-                    </div>
-                </div>
-                
-                <div class="skill-group">
-                    <div class="skill-label">Moteurs de jeu</div>
-                    <div class="skill-pills">
-                        <span class="pill">Unity</span>
-                        <span class="pill">Unreal Engine 5</span>
-                        <span class="pill">DirectX 12</span>
-                    </div>
-                </div>
-                
-                <div class="skill-group">
-                    <div class="skill-label">Spécialités</div>
-                    <div class="skill-pills">
-                        <span class="pill">UI/UX</span>
-                        <span class="pill">IA</span>
-                        <span class="pill">Animations</span>
-                        <span class="pill">Cinématiques</span>
-                        <span class="pill">Procédural</span>
-                    </div>
-                </div>
-                
-                <div class="skill-group">
-                    <div class="skill-label">Outils</div>
-                    <div class="skill-pills">
-                        <span class="pill">Visual Studio</span>
-                        <span class="pill">Git</span>
-                        <span class="pill">Unreal Editor</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-section">
-                <div class="col-title">Formation</div>
-                <div style="font-size:7.5pt; font-weight:600; color:var(--ink);">ENJMIN / CNAM</div>
-                <div style="font-size:7pt; color:var(--muted); margin-bottom:4px;">Programmation Jeux Vidéo</div>
-                <div style="font-size:7.5pt; font-weight:600; color:var(--ink);">Lycée → Bac S</div>
-                <div style="font-size:7pt; color:var(--muted);">Option NSI &amp; Maths expertes</div>
-            </div>
-            
-            <div class="col-section">
-                <div class="col-title">Langues</div>
-                <div class="skill-group">
-                    <div class="skill-pills">
-                        <span class="pill">Français — natif</span>
-                        <span class="pill">Anglais — B2</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- RIGHT -->
-        <div class="right">
-            <div class="section">
-                <div class="section-title">Projets</div>
-                
-                <div class="entry">
-                    <div class="entry-header">
-                        <div class="entry-title">Cinématique Unreal Engine 5</div>
-                        <div class="entry-date">09 / 2025</div>
-                    </div>
-                    <div class="entry-sub">Clip vidéo · Trailer d'une map</div>
-                    <ul class="entry-list">
-                        <li>Réalisation de plans séquences de plusieurs lieux clés de la map, puis assemblage et montage du clip complet</li>
-                        <li>Introduction approfondie à Unreal Engine et à ses fonctionnalités cinématiques (Sequencer, caméras, lighting)</li>
-                    </ul>
-                    <div class="tags">
-              <span class="tag">Unreal Engine 5</span>
-              <span class="tag">Sequencer</span>
-              <span class="tag">Cinématique</span>
-            </div>
-        </div>
-        
-        <hr class="divider">
-        
-        <div class="entry">
-            <div class="entry-header">
-                <div class="entry-title">Lite Hungry Shark</div>
-                <div class="entry-date">11 / 2025</div>
-            </div>
-            <div class="entry-sub">Jeu procédural Unity · Projet en duo · 1 semaine</div>
-            <ul class="entry-list">
-              <li>Génération procédurale via Perlin noise, randomisation des seeds pour une rejouabilité infinie, décors en tileSets</li>
-              <li>Maîtrise de plusieurs techniques de génération procédurale et prise en main d'Unity</li>
-            </ul>
-            <div class="tags">
-                <span class="tag">Unity</span>
-                <span class="tag">Procédural</span>
-                <span class="tag">Perlin Noise</span>
-            </div>
-        </div>
-        
-        <hr class="divider">
-        
-        <div class="entry">
-            <div class="entry-header">
-                <div class="entry-title">Moteur de rendu DirectX 12</div>
-                <div class="entry-date">2025</div>
-            </div>
-            <div class="entry-sub">Projet personnel · Bas niveau graphique</div>
-            <ul class="entry-list">
-                <li>Implémentation d'un pipeline de rendu 3D from scratch avec DirectX 12 et shaders HLSL</li>
-                <li>Gestion des ressources GPU, command lists, synchronisation CPU/GPU</li>
-            </ul>
-            <div class="tags">
-                <span class="tag">DirectX 12</span>
-                <span class="tag">HLSL</span>
-                <span class="tag">C++</span>
-            </div>
-        </div>
-    </div>
-    
-    <div class="section">
-        <div class="section-title">Expériences Professionnelles</div>
-        
-        <div class="entry">
-            <div class="entry-header">
-                <div class="entry-title">Vendeur à Domicile Indépendant</div>
-                <div class="entry-date">Juil. – Sept. 2024</div>
-            </div>
-            <div class="entry-sub">Geninc</div>
-            <ul class="entry-list">
-                <li>Promotion de donations caritatives en porte-à-porte, création de relations de confiance avec les prospects</li>
-                <li>Networking régulier de ma propre initiative pour améliorer mes compétences commerciales</li>
-            </ul>
-        </div>
-        
-        <hr class="divider">
-        
-        <div class="entry">
-            <div class="entry-header">
-                <div class="entry-title">Facteur / Livreur / Trieur</div>
-                <div class="entry-date">Fév. – Oct. 2023</div>
-            </div>
-            <div class="entry-sub">La Poste</div>
-            <ul class="entry-list">
-                <li>Organisation de la tournée quotidienne par tri du courrier et des recommandés, livraison sur 2 quartiers</li>
-                <li>Rendus quotidiens des résultats et respect rigoureux des délais</li>
-            </ul>
-        </div>
-    </div>
-</div>
-</div>
+
+<div class="controls">
+  <span class="ctrl-label">CV</span>
+  <button class="cv-btn active" onclick="switchCV('prog')">Gameplay Prog.</button>
+  <button class="cv-btn" onclick="switchCV('ld')">Level Designer</button>
+  <div class="sep"></div>
+  <span class="ctrl-label">Langue</span>
+  <button class="lang-btn active" onclick="switchLang('fr')">🇫🇷 FR</button>
+  <button class="lang-btn" onclick="switchLang('en')">🇬🇧 EN</button>
+  <div class="sep"></div>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 
-<!-- ══════════ EN ══════════ -->
-<div id="en-content" class="lang-content">
+<div class="page">
+
+<!-- ════════════════════════════════════════
+     CV 1 — GAMEPLAY PROGRAMMER
+════════════════════════════════════════ -->
+<div id="cv-prog" class="cv-panel active">
+
+  <!-- FR -->
+  <div id="prog-fr" class="lang-panel active">
     <header>
-        <div>
-            <div class="name">THEPAUT Elouan</div>
+      <div>
+        <div class="name">THEPAUT Elouan</div>
         <div class="job-title">Gameplay Programmer</div>
+      </div>
+      <div class="contact-block">
+        06 48 59 76 00<br>
+        e.thepaut28@gmail.com<br>
+        Lyon, 69002<br>
+        <a href="https://www.linkedin.com/in/elouan-thepaut">LinkedIn</a> · <a href="https://thepaut-elouan-github-io.vercel.app">Portfolio</a>
+      </div>
+    </header>
+    <div class="body">
+      <div class="left">
+        <div class="col-section">
+          <div class="col-title">Compétences Techniques</div>
+          <div class="skill-group">
+            <div class="skill-label">Langages</div>
+            <div class="skill-pills">
+              <span class="pill">C++ ⭐⭐⭐</span><span class="pill">C# ⭐⭐</span><span class="pill">C ⭐⭐</span><span class="pill">HLSL ⭐</span><span class="pill">Python ⭐</span><span class="pill">LUA ⭐</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Logiciels</div>
+            <div class="skill-pills">
+              <span class="pill">Unreal Engine 5 ⭐⭐⭐</span><span class="pill">Unity ⭐⭐</span><span class="pill">Godot ⭐</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Spécialités</div>
+            <div class="skill-pills">
+              <span class="pill">Architecture de code</span><span class="pill">Level Design</span><span class="pill">UI/UX</span><span class="pill">Procédural</span><span class="pill">IA</span><span class="pill">Cinématiques</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Outils</div>
+            <div class="skill-pills">
+              <span class="pill">Visual Studio 2022</span><span class="pill">Git</span><span class="pill">Perforce</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Formation</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Gaming Campus, formation GTECH</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:5px;">Programmation Jeux Vidéo</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Lycée → Bac</div>
+          <div style="font-size:7pt;color:var(--muted);">Spécialités Géopolitique &amp; SES</div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Loisirs</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Athlétisme</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:5px;">Spécialisé dans le 100m</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Jeux vidéo / de société</div>
+          <div style="font-size:7pt;color:var(--muted);">RPGs (A Plague Tale, AC, Pokémon, Clair Obscur), Compétitifs (LoL, Valorant, Overwatch)</div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Langues</div>
+          <div class="skill-pills"><span class="pill">Français — natif</span><span class="pill">Anglais — B1</span></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="section">
+          <div class="section-title">Projets</div>
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Cinématique Unreal Engine 5</div><div class="entry-date">09 / 2025</div></div>
+            <div class="entry-sub">Clip vidéo · Trailer de map</div>
+            <ul class="entry-list">
+              <li>Plans séquences de lieux clés de la map, puis assemblage et montage du clip complet</li>
+              <li>Introduction aux outils cinématiques d'Unreal (Sequencer, caméras, lighting) et à DaVinci Resolve</li>
+            </ul>
+            <div class="tags"><span class="tag">Unreal Engine 5</span><span class="tag">Sequencer</span><span class="tag">DaVinci Resolve</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Highway Road</div><div class="entry-date">02 / 2026</div></div>
+            <div class="entry-sub">Jeu 2D Unity · Projet en duo · 1 semaine</div>
+            <ul class="entry-list">
+              <li>Jeu entièrement en UI avec architecture MVC complète pour séparer le code de la présentation visuelle</li>
+              <li>Maîtrise d'une nouvelle approche UI sur Unity, dissociation du code et du visuel</li>
+            </ul>
+            <div class="tags"><span class="tag">Unity</span><span class="tag">UI</span><span class="tag">MVC</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Moteur de rendu DirectX 12</div><div class="entry-date">2025</div></div>
+            <div class="entry-sub">Projet d'équipe · Bas niveau graphique</div>
+            <ul class="entry-list">
+              <li>Pipeline de rendu 3D from scratch : frame resources, Shadow Mapping, command lists, synchro CPU/GPU</li>
+              <li>Shaders HLSL personnalisés et gestion bas niveau des ressources GPU</li>
+            </ul>
+            <div class="tags"><span class="tag">C++</span><span class="tag">DirectX 12</span><span class="tag">HLSL</span></div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-title">Expériences Professionnelles</div>
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Développeur logiciel Unreal</div><div class="entry-date">Mai – Sept. 2026 · En cours</div></div>
+            <div class="entry-sub">CASPOA</div>
+            <ul class="entry-list">
+              <li>Reprise et amélioration d'un logiciel existant développé sur Unreal Engine</li>
+              <li>Refonte de l'UI principale et implémentation de nouvelles fonctionnalités</li>
+            </ul>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Vendeur à Domicile Indépendant</div><div class="entry-date">Juil. – Sept. 2024</div></div>
+            <div class="entry-sub">Geninc</div>
+            <ul class="entry-list">
+              <li>Promotion de donations caritatives en porte-à-porte, relation de confiance avec les prospects</li>
+              <li>Networking régulier de ma propre initiative pour améliorer mes compétences commerciales</li>
+            </ul>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Facteur / Livreur / Trieur</div><div class="entry-date">Fév. – Oct. 2023</div></div>
+            <div class="entry-sub">La Poste</div>
+            <ul class="entry-list">
+              <li>Organisation de la tournée quotidienne par tri du courrier, livraison sur 2 quartiers</li>
+              <li>Rendus quotidiens des résultats et respect rigoureux des délais</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="contact-block">
+  </div>
+
+  <!-- EN -->
+  <div id="prog-en" class="lang-panel">
+    <header>
+      <div>
+        <div class="name">THEPAUT Elouan</div>
+        <div class="job-title">Gameplay Programmer</div>
+      </div>
+      <div class="contact-block">
         +33 6 48 59 76 00<br>
         e.thepaut28@gmail.com<br>
         Lyon, France<br>
         <a href="https://www.linkedin.com/in/elouan-thepaut">LinkedIn</a> · <a href="https://thepaut-elouan-github-io.vercel.app">Portfolio</a>
-    </div>
-</header>
-
-<div class="body">
-    <!-- LEFT -->
-    <div class="left">
+      </div>
+    </header>
+    <div class="body">
+      <div class="left">
         <div class="col-section">
-            <div class="col-title">Technical Skills</div>
-            
+          <div class="col-title">Technical Skills</div>
           <div class="skill-group">
-              <div class="skill-label">Languages</div>
-              <div class="skill-pills">
-                  <span class="pill">C++</span>
-                  <span class="pill">C#</span>
-                  <span class="pill">C</span>
-                  <span class="pill">Python</span>
-                  <span class="pill">HLSL</span>
-                </div>
+            <div class="skill-label">Languages</div>
+            <div class="skill-pills">
+              <span class="pill">C++ ⭐⭐⭐</span><span class="pill">C# ⭐⭐</span><span class="pill">C ⭐⭐</span><span class="pill">HLSL ⭐</span><span class="pill">Python ⭐</span><span class="pill">LUA ⭐</span>
             </div>
-            
-            <div class="skill-group">
-                <div class="skill-label">Game Engines</div>
-                <div class="skill-pills">
-                    <span class="pill">Unity</span>
-                    <span class="pill">Unreal Engine 5</span>
-                    <span class="pill">DirectX 12</span>
-                </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Game Engines</div>
+            <div class="skill-pills">
+              <span class="pill">Unreal Engine 5 ⭐⭐⭐</span><span class="pill">Unity ⭐⭐</span><span class="pill">Godot ⭐</span>
             </div>
-            
-            <div class="skill-group">
-                <div class="skill-label">Specialties</div>
-                <div class="skill-pills">
-                    <span class="pill">UI/UX</span>
-                    <span class="pill">AI</span>
-                    <span class="pill">Animations</span>
-                    <span class="pill">Cinematics</span>
-                    <span class="pill">Procedural</span>
-                </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Specialties</div>
+            <div class="skill-pills">
+              <span class="pill">Code Architecture</span><span class="pill">Level Design</span><span class="pill">UI/UX</span><span class="pill">Procedural</span><span class="pill">AI</span><span class="pill">Cinematics</span>
             </div>
-            
-            <div class="skill-group">
-                <div class="skill-label">Tools</div>
-                <div class="skill-pills">
-                    <span class="pill">Visual Studio</span>
-                    <span class="pill">Git</span>
-                    <span class="pill">Unreal Editor</span>
-                </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Tools</div>
+            <div class="skill-pills">
+              <span class="pill">Visual Studio 2022</span><span class="pill">Git</span><span class="pill">Perforce</span>
             </div>
+          </div>
         </div>
-        
         <div class="col-section">
-            <div class="col-title">Education</div>
-            <div style="font-size:7.5pt; font-weight:600; color:var(--ink);">ENJMIN / CNAM</div>
-            <div style="font-size:7pt; color:var(--muted); margin-bottom:4px;">Game Programming</div>
-            <div style="font-size:7.5pt; font-weight:600; color:var(--ink);">High School — Bac S</div>
-          <div style="font-size:7pt; color:var(--muted);">Computer Science &amp; Advanced Maths</div>
+          <div class="col-title">Education</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Gaming Campus, GTECH program</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:5px;">Game Programming</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">High School — Baccalauréat</div>
+          <div style="font-size:7pt;color:var(--muted);">Geopolitics &amp; Economics</div>
         </div>
-        
         <div class="col-section">
-            <div class="col-title">Languages</div>
-            <div class="skill-group">
-                <div class="skill-pills">
-                    <span class="pill">French — native</span>
-                    <span class="pill">English — B2</span>
-                </div>
-            </div>
+          <div class="col-title">Interests</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Athletics</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:5px;">Specialised in 100m sprint</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Video &amp; Board Games</div>
+          <div style="font-size:7pt;color:var(--muted);">RPGs (A Plague Tale, AC, Pokémon, Clair Obscur), Competitive (LoL, Valorant, Overwatch)</div>
         </div>
-    </div>
-    
-    <!-- RIGHT -->
-    <div class="right">
+        <div class="col-section">
+          <div class="col-title">Languages</div>
+          <div class="skill-pills"><span class="pill">French — native</span><span class="pill">English — B1</span></div>
+        </div>
+      </div>
+      <div class="right">
         <div class="section">
-            <div class="section-title">Projects</div>
-            
-            <div class="entry">
-                <div class="entry-header">
-                    <div class="entry-title">Unreal Engine 5 Cinematic</div>
-                    <div class="entry-date">09 / 2025</div>
-                </div>
-                <div class="entry-sub">Video clip · Map trailer production</div>
-                <ul class="entry-list">
-                    <li>Produced multiple sequence shots of key map locations, then assembled and edited the full video clip</li>
-                    <li>Deep introduction to Unreal Engine cinematic tools (Sequencer, cameras, lighting)</li>
-                </ul>
-                <div class="tags">
-                    <span class="tag">Unreal Engine 5</span>
-                    <span class="tag">Sequencer</span>
-                    <span class="tag">Cinematics</span>
-                </div>
-            </div>
-            
-            <hr class="divider">
-            
-            <div class="entry">
-                <div class="entry-header">
-                    <div class="entry-title">Lite Hungry Shark</div>
-                    <div class="entry-date">11 / 2025</div>
-                </div>
-                <div class="entry-sub">Procedural Unity game · Pair project · 1 week</div>
-                <ul class="entry-list">
-                    <li>Perlin noise map generation, seed randomisation for infinite replayability, tileSet-based environment art</li>
-                    <li>Learned multiple procedural generation techniques and gained solid Unity familiarity</li>
-                </ul>
-                <div class="tags">
-                    <span class="tag">Unity</span>
-              <span class="tag">Procedural Gen.</span>
-              <span class="tag">Perlin Noise</span>
-            </div>
-        </div>
-        
-        <hr class="divider">
-        
-        <div class="entry">
-            <div class="entry-header">
-                <div class="entry-title">DirectX 12 Render Engine</div>
-                <div class="entry-date">2025</div>
-            </div>
-            <div class="entry-sub">Personal project · Low-level graphics</div>
+          <div class="section-title">Projects</div>
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Unreal Engine 5 Cinematic</div><div class="entry-date">09 / 2025</div></div>
+            <div class="entry-sub">Video clip · Map trailer production</div>
             <ul class="entry-list">
-                <li>Built a 3D rendering pipeline from scratch using DirectX 12 and HLSL shaders</li>
-                <li>GPU resource management, command lists, CPU/GPU synchronisation</li>
+              <li>Shot and assembled sequence shots of key map locations into a full video clip</li>
+              <li>Hands-on introduction to UE5 cinematic tools (Sequencer, cameras, lighting) and DaVinci Resolve</li>
             </ul>
-            <div class="tags">
-                <span class="tag">DirectX 12</span>
-                <span class="tag">HLSL</span>
-                <span class="tag">C++</span>
-            </div>
+            <div class="tags"><span class="tag">Unreal Engine 5</span><span class="tag">Sequencer</span><span class="tag">DaVinci Resolve</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Highway Road</div><div class="entry-date">02 / 2026</div></div>
+            <div class="entry-sub">2D Unity game · Pair project · 1 week</div>
+            <ul class="entry-list">
+              <li>Fully UI-driven game built on a complete MVC architecture to separate logic from visuals</li>
+              <li>Mastered a new Unity UI approach that cleanly decouples code and presentation layers</li>
+            </ul>
+            <div class="tags"><span class="tag">Unity</span><span class="tag">UI</span><span class="tag">MVC</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">DirectX 12 Render Engine</div><div class="entry-date">2025</div></div>
+            <div class="entry-sub">Team project · Low-level graphics</div>
+            <ul class="entry-list">
+              <li>3D rendering pipeline from scratch: frame resources, Shadow Mapping, command lists, CPU/GPU sync</li>
+              <li>Custom HLSL shaders and low-level GPU resource management</li>
+            </ul>
+            <div class="tags"><span class="tag">C++</span><span class="tag">DirectX 12</span><span class="tag">HLSL</span></div>
+          </div>
         </div>
-    </div>
-    
-    <div class="section">
-        <div class="section-title">Professional Experience</div>
-        
-        <div class="entry">
-            <div class="entry-header">
-                <div class="entry-title">Independent Door-to-Door Salesperson</div>
-              <div class="entry-date">Jul. – Sept. 2024</div>
-            </div>
+        <div class="section">
+          <div class="section-title">Professional Experience</div>
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Unreal Software Developer</div><div class="entry-date">May – Sept. 2026 · Ongoing</div></div>
+            <div class="entry-sub">CASPOA</div>
+            <ul class="entry-list">
+              <li>Took over and improved an existing software product built on Unreal Engine</li>
+              <li>Redesigned the main UI and implemented new realistic features</li>
+            </ul>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Independent Door-to-Door Salesperson</div><div class="entry-date">Jul. – Sept. 2024</div></div>
             <div class="entry-sub">Geninc</div>
             <ul class="entry-list">
-                <li>Promoted charitable donations through canvassing, built trust relationships with prospects to drive loyalty</li>
-                <li>Self-initiated regular networking to sharpen commercial and interpersonal skills</li>
+              <li>Promoted charitable donations through canvassing, built trust relationships with prospects</li>
+              <li>Self-initiated regular networking to sharpen commercial and interpersonal skills</li>
             </ul>
-        </div>
-        
-        <hr class="divider">
-        
-        <div class="entry">
-            <div class="entry-header">
-                <div class="entry-title">Mail Carrier / Delivery / Sorter</div>
-                <div class="entry-date">Feb. – Oct. 2023</div>
-            </div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Mail Carrier / Delivery / Sorter</div><div class="entry-date">Feb. – Oct. 2023</div></div>
             <div class="entry-sub">La Poste</div>
             <ul class="entry-list">
-                <li>Organised daily routes by sorting incoming mail and registered letters; delivered across 2 city districts</li>
-                <li>Daily route reporting and strict adherence to deadlines</li>
+              <li>Organised daily routes by sorting incoming mail and registered letters; delivered across 2 city districts</li>
+              <li>Daily route reporting with strict adherence to deadlines</li>
             </ul>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
+  </div>
+
+</div><!-- #cv-prog -->
+
+
+<!-- ════════════════════════════════════════
+     CV 2 — LEVEL DESIGNER
+════════════════════════════════════════ -->
+<div id="cv-ld" class="cv-panel">
+
+  <!-- FR -->
+  <div id="ld-fr" class="lang-panel active">
+    <header>
+      <div>
+        <div class="name">THEPAUT Elouan</div>
+        <div class="job-title">Level Designer</div>
+      </div>
+      <div class="contact-block">
+        06 48 59 76 00<br>
+        e.thepaut28@gmail.com<br>
+        Lyon, 69002<br>
+        <a href="https://www.linkedin.com/in/elouan-thepaut">LinkedIn</a> · <a href="https://thepaut-elouan-github-io.vercel.app">Portfolio</a>
+      </div>
+    </header>
+    <div class="body">
+      <div class="left">
+        <div class="col-section">
+          <div class="col-title">Compétences Techniques</div>
+          <div class="skill-group">
+            <div class="skill-label">Langages</div>
+            <div class="skill-pills">
+              <span class="pill">C++</span><span class="pill">C#</span><span class="pill">C</span><span class="pill">Python</span><span class="pill">HLSL</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Moteurs &amp; Frameworks</div>
+            <div class="skill-pills">
+              <span class="pill">Unity</span><span class="pill">Unreal Engine 5</span><span class="pill">DirectX 12</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Domaines</div>
+            <div class="skill-pills">
+              <span class="pill">UI/UX</span><span class="pill">IA</span><span class="pill">Animations</span><span class="pill">Cinématiques</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Outils</div>
+            <div class="skill-pills">
+              <span class="pill">Visual Studio</span><span class="pill">Git</span><span class="pill">Unreal Editor</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Formation</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Gaming Campus, formation GTECH</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:5px;">Programmation Jeux Vidéo</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Lycée → Bac</div>
+          <div style="font-size:7pt;color:var(--muted);">Spécialités Géopolitique &amp; SES</div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Loisirs</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Athlétisme</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:5px;">Spécialisé dans le 100m</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Jeux vidéo / de société</div>
+          <div style="font-size:7pt;color:var(--muted);">RPGs (A Plague Tale, AC, Pokémon, Clair Obscur), Compétitifs (LoL, Valorant, Overwatch)</div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Langues</div>
+          <div class="skill-pills"><span class="pill">Français — natif</span><span class="pill">Anglais — B1</span></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="section">
+          <div class="section-title">Projets</div>
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">3D Engine</div><div class="entry-date">07 / 2025</div></div>
+            <div class="entry-sub">Moteur de jeu 3D custom · From scratch</div>
+            <ul class="entry-list">
+              <li>Shadow mapping, frame resources et scènes de tests implémentés</li>
+              <li>Apprentissage approfondi des moteurs custom, programmation C++ et HLSL</li>
+              <li>Recherches personnelles sur DirectX 12, shaders, skybox et rendu 3D</li>
+            </ul>
+            <div class="tags"><span class="tag">DirectX 12</span><span class="tag">HLSL</span><span class="tag">C++</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Cinématique Unreal Engine 5</div><div class="entry-date">09 / 2025</div></div>
+            <div class="entry-sub">Clip vidéo · Trailer de map</div>
+            <ul class="entry-list">
+              <li>Plans séquences de lieux clés de la map, assemblage et montage du clip complet</li>
+              <li>Introduction aux fonctionnalités cinématiques d'Unreal et à DaVinci Resolve</li>
+            </ul>
+            <div class="tags"><span class="tag">Unreal Engine 5</span><span class="tag">Sequencer</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Lite Hungry Shark</div><div class="entry-date">11 / 2025</div></div>
+            <div class="entry-sub">Jeu procédural Unity · Duo · 1 semaine</div>
+            <ul class="entry-list">
+              <li>Randomisation des seeds, carte via Perlin noise, décor en tileSets — rejouabilité infinie</li>
+              <li>Apprentissage de plusieurs types de générations procédurales et prise en main d'Unity</li>
+            </ul>
+            <div class="tags"><span class="tag">Unity</span><span class="tag">Génération procédurale</span></div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-title">Expériences Professionnelles</div>
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Développeur Rendu | Custom Engine</div><div class="entry-date">Mai – Juil. 2025</div></div>
+            <div class="entry-sub">Gaming Campus</div>
+            <ul class="entry-list">
+              <li>Shadow mapping avec DirectX 12 et HLSL, première expérience de pair programming</li>
+              <li>Ajout d'un Frame Resources pour optimiser le moteur</li>
+              <li>Création d'une scène de démo pour présenter le résultat final du pôle rendu</li>
+            </ul>
+            <div class="tags"><span class="tag">DirectX 12</span><span class="tag">HLSL</span><span class="tag">C++</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Vendeur à Domicile Indépendant</div><div class="entry-date">Juil. – Sept. 2024</div></div>
+            <div class="entry-sub">Geninc</div>
+            <ul class="entry-list">
+              <li>Promotion de donations caritatives en porte-à-porte, relation de confiance avec les prospects</li>
+              <li>Networking régulier de ma propre initiative pour améliorer mes compétences commerciales</li>
+            </ul>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Facteur / Livreur / Trieur</div><div class="entry-date">Fév. – Oct. 2023</div></div>
+            <div class="entry-sub">La Poste</div>
+            <ul class="entry-list">
+              <li>Organisation de la tournée quotidienne par tri du courrier, livraison sur 2 quartiers</li>
+              <li>Rendus quotidiens des résultats et respect rigoureux des délais</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EN -->
+  <div id="ld-en" class="lang-panel">
+    <header>
+      <div>
+        <div class="name">THEPAUT Elouan</div>
+        <div class="job-title">Level Designer</div>
+      </div>
+      <div class="contact-block">
+        +33 6 48 59 76 00<br>
+        e.thepaut28@gmail.com<br>
+        Lyon, France<br>
+        <a href="https://www.linkedin.com/in/elouan-thepaut">LinkedIn</a> · <a href="https://thepaut-elouan-github-io.vercel.app">Portfolio</a>
+      </div>
+    </header>
+    <div class="body">
+      <div class="left">
+        <div class="col-section">
+          <div class="col-title">Technical Skills</div>
+          <div class="skill-group">
+            <div class="skill-label">Languages</div>
+            <div class="skill-pills">
+              <span class="pill">C++</span><span class="pill">C#</span><span class="pill">C</span><span class="pill">Python</span><span class="pill">HLSL</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Engines &amp; Frameworks</div>
+            <div class="skill-pills">
+              <span class="pill">Unity</span><span class="pill">Unreal Engine 5</span><span class="pill">DirectX 12</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Domains</div>
+            <div class="skill-pills">
+              <span class="pill">UI/UX</span><span class="pill">AI</span><span class="pill">Animations</span><span class="pill">Cinematics</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Tools</div>
+            <div class="skill-pills">
+              <span class="pill">Visual Studio</span><span class="pill">Git</span><span class="pill">Unreal Editor</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Education</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Gaming Campus, GTECH program</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:5px;">Game Programming</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">High School — Baccalauréat</div>
+          <div style="font-size:7pt;color:var(--muted);">Geopolitics &amp; Economics</div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Interests</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Athletics</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:5px;">Specialised in 100m sprint</div>
+          <div style="font-size:7.5pt;font-weight:600;color:var(--ink);">Video &amp; Board Games</div>
+          <div style="font-size:7pt;color:var(--muted);">RPGs (A Plague Tale, AC, Pokémon, Clair Obscur), Competitive (LoL, Valorant, Overwatch)</div>
+        </div>
+        <div class="col-section">
+          <div class="col-title">Languages</div>
+          <div class="skill-pills"><span class="pill">French — native</span><span class="pill">English — B1</span></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="section">
+          <div class="section-title">Projects</div>
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">3D Engine</div><div class="entry-date">07 / 2025</div></div>
+            <div class="entry-sub">Custom 3D game engine · From scratch</div>
+            <ul class="entry-list">
+              <li>Implemented shadow mapping, frame resources and test scenes</li>
+              <li>Deep learning of custom engines, C++ and HLSL programming</li>
+              <li>Extensive personal research on DirectX 12, shaders, skybox and 3D rendering</li>
+            </ul>
+            <div class="tags"><span class="tag">DirectX 12</span><span class="tag">HLSL</span><span class="tag">C++</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Unreal Engine 5 Cinematic</div><div class="entry-date">09 / 2025</div></div>
+            <div class="entry-sub">Video clip · Map trailer production</div>
+            <ul class="entry-list">
+              <li>Multiple sequence shots of key map locations, assembled and edited into a full video clip</li>
+              <li>Introduction to UE5 cinematic features and DaVinci Resolve editing</li>
+            </ul>
+            <div class="tags"><span class="tag">Unreal Engine 5</span><span class="tag">Sequencer</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Lite Hungry Shark</div><div class="entry-date">11 / 2025</div></div>
+            <div class="entry-sub">Procedural Unity game · Pair project · 1 week</div>
+            <ul class="entry-list">
+              <li>Seed randomisation, Perlin noise map generation, tileSet environment — infinite replayability</li>
+              <li>Learned multiple procedural generation techniques and gained solid Unity familiarity</li>
+            </ul>
+            <div class="tags"><span class="tag">Unity</span><span class="tag">Procedural Generation</span></div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-title">Professional Experience</div>
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Rendering Developer | Custom Engine</div><div class="entry-date">May – Jul. 2025</div></div>
+            <div class="entry-sub">Gaming Campus</div>
+            <ul class="entry-list">
+              <li>Shadow mapping with DirectX 12 and HLSL — first pair programming experience</li>
+              <li>Added Frame Resources to optimise the engine</li>
+              <li>Created a demo scene to showcase the final rendering results</li>
+            </ul>
+            <div class="tags"><span class="tag">DirectX 12</span><span class="tag">HLSL</span><span class="tag">C++</span></div>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Independent Door-to-Door Salesperson</div><div class="entry-date">Jul. – Sept. 2024</div></div>
+            <div class="entry-sub">Geninc</div>
+            <ul class="entry-list">
+              <li>Promoted charitable donations through canvassing, built trust relationships with prospects</li>
+              <li>Self-initiated regular networking to sharpen commercial and interpersonal skills</li>
+            </ul>
+          </div>
+          <hr class="divider">
+          <div class="entry">
+            <div class="entry-header"><div class="entry-title">Mail Carrier / Delivery / Sorter</div><div class="entry-date">Feb. – Oct. 2023</div></div>
+            <div class="entry-sub">La Poste</div>
+            <ul class="entry-list">
+              <li>Organised daily routes by sorting incoming mail and registered letters; delivered across 2 city districts</li>
+              <li>Daily route reporting with strict adherence to deadlines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- #cv-ld -->
 
 </div><!-- .page -->
 
 <script>
-    function switchLang(lang) {
-        document.getElementById('fr-content').classList.toggle('active', lang === 'fr');
-        document.getElementById('en-content').classList.toggle('active', lang === 'en');
-        document.querySelectorAll('.lang-btn').forEach((b, i) => {
-            b.classList.toggle('active', (i === 0 && lang === 'fr') || (i === 1 && lang === 'en'));
-        });
-    }
+  let currentCV = 'prog';
+  let currentLang = 'fr';
+
+  function switchCV(cv) {
+    currentCV = cv;
+    document.querySelectorAll('.cv-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('cv-' + cv).classList.add('active');
+    document.querySelectorAll('.cv-btn').forEach((b, i) => {
+      b.classList.toggle('active', (i === 0 && cv === 'prog') || (i === 1 && cv === 'ld'));
+    });
+    applyLang();
+  }
+
+  function switchLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach((b, i) => {
+      b.classList.toggle('active', (i === 0 && lang === 'fr') || (i === 1 && lang === 'en'));
+    });
+    applyLang();
+  }
+
+  function applyLang() {
+    // Hide all lang panels in both CVs
+    document.querySelectorAll('.lang-panel').forEach(p => p.classList.remove('active'));
+    // Show only the active CV + active lang
+    const panel = document.getElementById(currentCV + '-' + currentLang);
+    if (panel) panel.classList.add('active');
+  }
 </script>
 </body>
 </html>
